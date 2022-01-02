@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 90vh;
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: rgba(245, 245, 245, 0.558);
+        }
+
+        .container {
+            height: 570px;
+            width: 310px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            background: #fff;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, .15);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .container img {
+            width: 230px;
+        }
+
+        .user-interaction {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 20px;
+            gap: 1rem;
+        }
+
+        .interaction-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            width: 100%;
+            margin: 1rem;
+        }
+
+        .interaction-block input {
+            width: 100%;
+            border: 1px solid rgba(128, 128, 128, .449);
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 15px;
+        }
+
+        .interaction-block input:focus {
+            outline: 0;
+        }
+
+        .interaction-block button {
+            font-size: 15px;
+            background-color: #09446a;
+            color: #fff;
+            width: 117%;
+            height: 40px;
+            border: none;
+            border-radius: 20px;
+        }
+
+        .interaction-block button:hover {
+            background-color: #083d60;
+            color: rgba(255, 255, 255, .789);
+            cursor: pointer;
+        }
+
+        .interaction-block a {
+            width: 117%;
+            padding-top: 9px;
+            height: 30px;
+            text-align: center;
+            text-decoration: none;
+            color: rgba(128, 128, 128, 0.565);
+            border: 1px solid rgba(128, 128, 128, 0.463);
+            border-radius: 20px;
+        }
+
+        .interaction-block a:hover {
+            color: rgba(128, 128, 128, 0.347);
+            border: 1px solid rgba(128, 128, 128, 0.293);
+            cursor: pointer;
+        }
+
+        .interaction-block a:focus {
+            color: rgba(128, 128, 128, .449);
+        }
+
+        .interaction-block button:focus {
+            outline: 0;
+        }
+
+        @media only screen and (max-width:440px) {
+            body {
+                background-color: white;
+            }
+
+            .interaction-block a {
+                width: 100%;
+            }
+
+            .interaction-block button {
+                width: 100%;
+            }
+
+            .interaction-block input {
+                width: 84%;
+            }
+
+            .container {
+                width: 280px;
+                box-shadow: none;
+            }
+        }
+
+        /* loader */
+
+        #main-loader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 0;
+        }
+
+        #loader {
+            width: 70px;
+            height: 70px;
+            border: 4px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 4px solid #09446a;
+            -webkit-animation: spin 0.7s linear infinite;
+            animation: spin 0.7s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script defer>
+        window.onload = () => {
+            document.getElementById('main-loader').style.display = 'none'
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <img src="https://xpert.emnichtda.de/wp-content/uploads/2021/12/xpert-logo2.png" alt="xpert-logo">
+        <div class="user-interaction">
+            <div class="interaction-block">
+                <input id="email_input" type="text" placeholder="Email address" required>
+                <input id="password_input" type="password" placeholder="Password" required>
+            </div>
+            <div class="interaction-block">
+                <button id="credentials_login">Login</button>
+                <a href="https://xpert.emnichtda.de/?page_id=135">Face Authentication</a>
+                <a href="https://xpert.emnichtda.de/?page_id=112">Sign Up</a>
+            </div>
+        </div>
+    </div>
+    <div id="main-loader">
+        <div id="loader"></div>
+    </div>
+</body>
+
+</html>
