@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Material Design stylesheets and jscalendergrid -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@5.10.1/main.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/loader.css">
+    <link rel="stylesheet" href="./css/calendar.css">
+    <script defer src="./js/main_xpert.js"></script>
+</head>
+
+<body>
+    <!-- main navigation -->
+    <nav>
+        <div class="nav-left">
+            <button id="menu_btn" class="material-btn"><span class="material-icons">menu</span></button>
+            <h1>Xpert</h1>
+        </div>
+        <input id="search_input" type="text" placeholder="Search">
+        <div class="nav-right">
+            <button id="search_btn" class="material-btn"><span class="material-icons">search</span></button>
+            <button id="invites_btn" class="material-btn"><span class="material-icons-outlined">email</span></button>
+            <div class="profile-banner">
+                <p id="name_of_user">Name</p>
+                <button id="exp_more_profile_btn" class="material-btn">
+                    <span class="material-icons">
+                        expand_more
+                    </span>
+                </button>
+            </div>
+            <div class="avatar-img">
+                <img id="avatar_img" src="https://xpert.emnichtda.de/wp-content/uploads/2022/01/avatar_placeholder.jpg"
+                    alt="avatar">
+            </div>
+        </div>
+        <!-- when nav smaller that 630px -->
+        <button id="show_more_nav" class="material-btn expand"><span class="material-icons">more_vert</span></button>
+    </nav>
+    <div id="side_drawer" class="side-drawer">
+        <button id="create_element_btn" class="create-element-btn">
+            Create <span class="material-icons">add</span>
+        </button>
+        <!-- static date picker -->
+        <div class="date-navigator">
+            <div class="month-year__navigators">
+                <p id="current_month">January 2022</p>
+                <div class="navigators">
+                    <span class="material-icons" id="navigate_before">
+                        navigate_before
+                    </span>
+                    <span class="material-icons" id="navigate_next">
+                        navigate_next
+                    </span>
+                </div>
+            </div>
+            <div class="days">
+                <p>M</p>
+                <p>T</p>
+                <p>W</p>
+                <p>T</p>
+                <p>F</p>
+                <p>S</p>
+                <p>S</p>
+            </div>
+            <div id="date_navigator_elements" class="calender-grid"></div>
+        </div>
+        <!-- list calenders as categories from user -->
+        <div class="calenders-user">
+            <div id="my_calenders">
+                <div class="head-drop">
+                    <h4>My Calenders</h4>
+                    <span id="expand1" class="material-icons">
+                        expand_more
+                    </span>
+                </div>
+                <div id="expand1_calender" class="calenders">
+                    <div class="calender">
+                        <input type="checkbox" id="mydates">
+                        <span>My-Dates</span>
+                    </div>
+                </div>
+            </div>
+            <div id="other_calenders">
+                <div class="head-drop">
+                    <h4>Other Calenders</h4>
+                    <span id="expand2" class="material-icons">
+                        expand_more
+                    </span>
+                </div>
+                <div id="expand2_calender" class="calenders">
+                    <div class="calender">
+                        <input type="checkbox" id="holidays">
+                        <span>Holidays</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main center content -->
+    <div id="main_grid" class="calender-grid-main full">
+    </div>
+    <!-- dropdown and dialogs -->
+    <ul id="profile_dialog" class="profile-menu">
+        <li id="profile_link"><span class="material-icons">person</span>Profile</li>
+        <li id="settings_link"><span class="material-icons">settings</span>Settings</li>
+        <li id="logout_link"><span class="material-icons">logout</span>Logout</li>
+    </ul>
+    <div id="mobile_dialog" class="quickaction-mobile-dialog">
+        <div class="avatar-img">
+            <img id="avatar_img" src="https://xpert.emnichtda.de/wp-content/uploads/2022/01/avatar_placeholder.jpg"
+                alt="avatar">
+            <p id="dialog_name">Name</p>
+        </div>
+        <ul>
+            <li id="profile_mobile_link"><span class="material-icons">person</span>Profile</li>
+            <li id="search_link"><span class="material-icons">search</span>Search</li>
+            <li id="invites_mobile_link"><span class="material-icons">email</span>Invites</li>
+            <li id="settings_mobile_link"><span class="material-icons">settings</span>Settings</li>
+            <li id="logout_mobile_link"><span class="material-icons">logout</span>Logout</li>
+        </ul>
+    </div>
+    <!-- modals -->
+    <div class="modal" id="profile_modal">
+        <div class="modal-content">
+            <div class="modal-head">
+                <button id="profile_close_modal" class="material-btn back"><span
+                        class="material-icons">arrow_back</span></button>
+                <h1>Xpert Profile</h1>
+            </div>
+            <div class="profile">
+                <img id="avatar_img" src="https://xpert.emnichtda.de/wp-content/uploads/2022/01/avatar_placeholder.jpg"
+                    alt="avatar">
+                <div class="informations">
+                    <h2 id="profile_name">Your Name</h2>
+                    <p>E-Mail</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="invites_modal">
+        <div class="modal-content">
+            <div class="modal-head">
+                <button id="invites_close_modal" class="material-btn back"><span
+                        class="material-icons">arrow_back</span></button>
+                <h1>Invites</h1>
+            </div>
+            <div class="current-invites-list">
+                <p>You have currently no invites.</p>
+            </div>
+        </div>
+    </div>
+    <div class="dialog" id="event_dialog">
+        <div class="dialog-content">
+            <div class="dialog-head">
+                <button class="material-btn" id="event_dialog_close"><span class="material-icons">close</span></button>
+            </div>
+            <div class="dialog-main">
+                <input type="text" id="event_title" placeholder="Title">
+                <div class="event-type-group">
+                    <button class="event-type selected" id="0">Appointment</button>
+                    <button class="event-type" id="1">Event</button>
+                    <button class="event-type" id="2">Task</button>
+                </div>
+                <div class="date-label">
+                    <h4>Set Date:</h4>
+                    <div class="date-input">
+                        <span class="material-icons">
+                            event
+                        </span>
+                        <input type="date" id="event_date" value="2022-01-01">
+                    </div>
+                </div>
+                <div class="date-label">
+                    <h4>Set Time:</h4>
+                    <div class="date-input">
+                        <span class="material-icons">
+                            schedule
+                        </span>
+                        <div class="date-input">
+                            <input type="time" id="time_from" value="00:00">
+                            <div id="timetoselect">
+                                -<input type="time" id="time_to" value="00:00">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="date-label">
+                    <h4>Set Color:</h4>
+                    <span id="colorspan"><input type="color" id="colorinput" value="#09446A"></span>
+                </div>
+                <div>
+                    <textarea id="event_description" placeholder="Description" cols="39" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="dialog-footer">
+                <button id="submit_element">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- settings -->
+    <div id="settings_screen" class="settings-pane">
+        <div class="head">
+            <button id="close_settings" class="material-btn back"><span
+                    class="material-icons">arrow_back</span></button>
+            <h2>Settings</h2>
+        </div>
+        <div class="content-section">
+            <div class="side-options-list">
+                <div class="option">
+                    <h3>Option 1</h3>
+                </div>
+                <div class="option">
+                    <h3>Option 2</h3>
+                </div>
+                <div class="option">
+                    <h3>Option 3</h3>
+                </div>
+                <div class="option">
+                    <h3>Option 4</h3>
+                </div>
+                <div class="option">
+                    <h3>Option 5</h3>
+                </div>
+            </div>
+            <div class="option-content">
+                <h1>Content to corresponding option.</h1>
+            </div>
+        </div>
+    </div>
+    <!-- navigation functionality done -->
+    <div id="main-loader">
+        <div id="loader"></div>
+    </div>
+</body>
+
+</html>

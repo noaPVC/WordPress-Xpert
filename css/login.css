@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: rgba(245, 245, 245, 0.558);
+}
+
+.container {
+    height: 570px;
+    width: 310px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #fff;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, .15);
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.user-feedback {
+    color: rgb(233, 73, 73);
+    margin-bottom: -0.8rem;
+    visibility: hidden;
+}
+
+.container img {
+    width: 230px;
+}
+
+.user-interaction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    gap: 1rem;
+}
+
+.interaction-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    margin: 1rem;
+}
+
+.interaction-block input {
+    width: 100%;
+    border: 1px solid rgba(128, 128, 128, .449);
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 15px;
+}
+
+.interaction-block input:focus {
+    outline: 0;
+}
+
+.interaction-block button {
+    font-size: 15px;
+    background-color: #09446a;
+    color: #fff;
+    width: 117%;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+}
+
+.interaction-block button:hover {
+    background-color: #083d60;
+    color: rgba(255, 255, 255, .789);
+    cursor: pointer;
+}
+
+.interaction-block a {
+    width: 117%;
+    padding-top: 9px;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+    color: rgba(128, 128, 128, 0.565);
+    border: 1px solid rgba(128, 128, 128, 0.463);
+    border-radius: 20px;
+}
+
+.interaction-block a:hover {
+    color: rgba(128, 128, 128, 0.347);
+    border: 1px solid rgba(128, 128, 128, 0.293);
+    cursor: pointer;
+}
+
+.interaction-block a:focus {
+    color: rgba(128, 128, 128, .449);
+}
+
+.interaction-block button:focus {
+    outline: 0;
+}
+
+@media only screen and (max-width:440px) {
+    body {
+        background-color: white;
+    }
+
+    .interaction-block a {
+        width: 100%;
+    }
+
+    .interaction-block button {
+        width: 100%;
+    }
+
+    .interaction-block input {
+        width: 84%;
+    }
+
+    .container {
+        width: 280px;
+        box-shadow: none;
+    }
+}
