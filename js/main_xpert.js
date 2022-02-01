@@ -1,5 +1,3 @@
-
-// top level helpers
 const docId = (id) => document.getElementById(id)
 
 function setDisplay(element, state) {
