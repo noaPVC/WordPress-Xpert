@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 90vh;
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: rgba(245, 245, 245, 0.558);
+            overflow-x: hidden;
+        }
+
+        .container {
+            height: 570px;
+            width: 310px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, .15);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .container img {
+            width: 230px;
+            margin-top: 2rem;
+        }
+
+        .container a {
+            width: 100%;
+            padding-top: 9px;
+            height: 30px;
+            text-align: center;
+            text-decoration: none;
+            color: rgba(128, 128, 128, 0.565);
+            border: 1px solid rgba(128, 128, 128, 0.463);
+            border-radius: 20px;
+        }
+
+        .container a:hover {
+            color: rgba(128, 128, 128, 0.347);
+            border: 1px solid rgba(128, 128, 128, 0.293);
+            cursor: pointer;
+        }
+
+        .container a:focus {
+            color: rgba(128, 128, 128, .449);
+        }
+
+        .user-feedback {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 6rem;
+        }
+
+        .user-feedback h2 {
+            color: #09446a;
+            text-align: center;
+            padding-top: 1rem;
+            width: 280px;
+        }
+
+        @media only screen and (max-width: 450px) {
+            body {
+                background-color: white;
+            }
+
+            .container {
+                width: 280px;
+                box-shadow: none;
+            }
+
+            .user-feedback h2 {
+                width: 75%;
+            }
+
+            .container a {
+                width: 70%;
+            }
+        }
+
+        /* loader */
+
+        #main-loader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 0;
+        }
+
+        #loader {
+            width: 70px;
+            height: 70px;
+            border: 4px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 4px solid #09446a;
+            -webkit-animation: spin 0.7s linear infinite;
+            animation: spin 0.7s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script defer>
+        window.onload = () => {
+            document.getElementById('main-loader').style.display = 'none'
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="user-feedback">
+            <svg xmlns="http://www.w3.org/2000/svg" width="230" height="141" viewBox="0 0 300 160">
+                <g id="group" fill="none" fill-rule="evenodd">
+                    <g id="smile">
+                        <path id="smile-up" stroke="#09446A" stroke-width="30"
+                            d="M238.797 75.04C222.935 40.772 188.243 17 148 17c-39.62 0-73.857 23.04-90.046 56.453"
+                            stroke-linecap="round" />
+                    </g>
+                    <circle fill="#09446A" cx="147" cy="110" r="45" />
+                </g>
+            </svg>
+            <h2>Please open your camera for face authentication.</h2>
+        </div>
+        <a href="https://xpert.emnichtda.de/">Use Credentials</a>
+    </div>
+    <div id="main-loader">
+        <div id="loader"></div>
+    </div>
+</body>
+
+</html>
